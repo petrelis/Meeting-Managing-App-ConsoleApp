@@ -1,0 +1,93 @@
+[
+{
+  "Name": "name",
+  "ResponsiblePerson": "a",
+  "Description": "b",
+  "Category": "v",
+  "Type": "live",
+  "StartDate": "2023-06-03T20:30:00+00:00",
+  "EndDate": "2023-06-03T22:00:00+00:00",
+  "Participants": [
+    "paulius",
+    "arunas"
+  ]
+},
+{
+  "Name": "meet",
+  "ResponsiblePerson": "a",
+  "Description": "nice",
+  "Category": "wow",
+  "Type": "a",
+  "StartDate": "2023-06-03T20:30:00+00:00",
+  "EndDate": "2023-06-03T22:00:00+00:00",
+  "Participants": [
+    "test",
+    "testas"
+  ]
+},
+{
+  "Name": "name",
+  "ResponsiblePerson": "responsiblePerson",
+  "Description": "description",
+  "Category": "category",
+  "Type": "live",
+  "StartDate": "2022-04-03T20:30:00+00:00",
+  "EndDate": "2022-04-03T21:30:00+00:00",
+  "Participants": [
+    "person1",
+    "person2"
+  ]
+},
+{
+  "Name": "name",
+  "ResponsiblePerson": "responsiblePerson",
+  "Description": "description",
+  "Category": "category",
+  "Type": "live",
+  "StartDate": "2022-04-03T20:30:00+00:00",
+  "EndDate": "2022-04-03T21:30:00+00:00",
+  "Participants": [
+    "person1",
+    "person2"
+  ]
+},
+{
+  "Name": "name",
+  "ResponsiblePerson": "responsiblePerson",
+  "Description": "description",
+  "Category": "category",
+  "Type": "live",
+  "StartDate": "2022-04-03T20:30:00+00:00",
+  "EndDate": "2022-04-03T21:30:00+00:00",
+  "Participants": [
+    "person1",
+    "person2"
+  ]
+},
+{
+  "Name": "name",
+  "ResponsiblePerson": "responsiblePerson",
+  "Description": "description",
+  "Category": "category",
+  "Type": "live",
+  "StartDate": "2022-04-03T20:30:00+00:00",
+  "EndDate": "2022-04-03T21:30:00+00:00",
+  "Participants": [
+    "person1",
+    "person2"
+  ]
+},
+{
+  "Name": "name",
+  "ResponsiblePerson": "responsiblePerson",
+  "Description": "description",
+  "Category": "category",
+  "Type": "live",
+  "StartDate": "2022-04-03T20:30:00+00:00",
+  "EndDate": "2022-04-03T21:30:00+00:00",
+  "Participants": [
+    "person1",
+    "person2"
+  ]
+}
+]
