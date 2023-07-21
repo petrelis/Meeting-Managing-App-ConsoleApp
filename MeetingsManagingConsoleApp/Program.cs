@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using HelperClass;
 
 namespace MeetingsManagingConsoleApp
 {
@@ -12,7 +13,7 @@ namespace MeetingsManagingConsoleApp
             var meetingsList = new MeetingList();
 
             Console.Write("Enter your username: ");
-            string username = Console.ReadLine();
+            string username = MiscFunctions.GetNotNullStringFromReadLine("username");
 
             Console.WriteLine("Type \"help\" for commands");
 
@@ -32,32 +33,13 @@ namespace MeetingsManagingConsoleApp
                             "search - search for meetings based on attributes\n" +
                             "exit - stops the app\n");
                         break;
-                    case "add":
+
+                    case "clear":
                         Console.Clear();
-                        Console.WriteLine("Meeting Name: ");
-                        var name = Console.ReadLine();
-                        var responsiblePerson = username;
-                        Console.WriteLine("Description: ");
-                        var description = Console.ReadLine();
-                        Console.WriteLine("Category: ");
-                        var category = Console.ReadLine();
-                        Console.WriteLine("Type: ");
-                        var type = Console.ReadLine();
-                        var startDate = GetStartDate();
-                        Console.Write("How long will the meeting take in minutes: ");
-                        var length = Int32.Parse(Console.ReadLine());
-                        var endDate = startDate.AddMinutes(length);
-                        var participants = new List<string>();
+                        break;
 
-                        var newMeeting = new Meeting(name,
-                            responsiblePerson,
-                            description,
-                            category,
-                            type,
-                            startDate,
-                            endDate,
-                            participants);
-
+                    case "add":
+                        Meeting newMeeting = Meeting.AddNewMeeting(username);
                         meetingsList.AddMeeting(newMeeting);
 
                         break;
@@ -68,8 +50,7 @@ namespace MeetingsManagingConsoleApp
                         if (ownedMeetingsAddp.Count > 0)
                         {
                             Console.WriteLine("Which meeting do you want to add people to (enter index): ");
-                            string addpInput = Console.ReadLine();
-                            int addpIndex = Int32.Parse(addpInput) - 1;
+                            int addpIndex = MiscFunctions.GetIntFromReadLine() - 1;
                             int addedIndex = meetingsList.AddPeople(addpIndex);
                             Console.Clear();
                             Console.WriteLine($"{addedIndex} Participants added");
@@ -102,7 +83,7 @@ namespace MeetingsManagingConsoleApp
                         {
                             Console.Write("Which meeting do you want to delete (enter index): ");
                             string removeInput = Console.ReadLine();
-                            int removeIndex = Int32.Parse(removeInput) - 1;
+                            int removeIndex = MiscFunctions.GetIntFromReadLine() - 1;
                             var removeMeeting = ownedMeetingsRemove[removeIndex];
                             meetingsList.DeleteMeeting(removeMeeting);
                             meetingsList.CsMeetingsToJson();
@@ -138,23 +119,6 @@ namespace MeetingsManagingConsoleApp
 
                 }
             }
-        }
-
-        private static DateTimeOffset GetStartDate()
-        {
-            Console.WriteLine("Enter starting date and time");
-            Console.Write("Enter year: ");
-            var year = Int32.Parse(Console.ReadLine());
-            Console.Write("Enter month: ");
-            var month = Int32.Parse(Console.ReadLine());
-            Console.Write("Enter day: ");
-            var day = Int32.Parse(Console.ReadLine());
-            Console.Write("Enter hour: ");
-            var hour = Int32.Parse(Console.ReadLine());
-            Console.Write("Enter minutes: ");
-            var minutes = Int32.Parse(Console.ReadLine());
-            var startDate = new DateTimeOffset(year, month, day, hour, minutes, 0, TimeSpan.Zero);
-            return startDate;
         }
     }
 }

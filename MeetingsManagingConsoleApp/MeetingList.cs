@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using HelperClass;
 
 namespace MeetingsManagingConsoleApp
 {
@@ -13,10 +14,10 @@ namespace MeetingsManagingConsoleApp
 
         static List<Meeting> JsonMeetingsToCs()
         {
-            string fileName = @"C:\Users\visti\Desktop\MeetingsManagingConsoleApp\MeetingsManagingConsoleApp\Meetings.json";
-            if (File.Exists(fileName) && new FileInfo(fileName).Length > 1)
+            string filePath = FileFunctions.GetFilePathFromBaseDirectory("Meetings.json");
+            if (File.Exists(filePath) && new FileInfo(filePath).Length > 1)
             {
-                string justText = File.ReadAllText(fileName);
+                string justText = File.ReadAllText(filePath);
 
                 var meetings = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Meeting>>(justText);
 
@@ -49,7 +50,7 @@ namespace MeetingsManagingConsoleApp
 
         public void CsMeetingsToJson()
         {
-            string filePath = @"C:\Users\visti\Desktop\MeetingsManagingConsoleApp\MeetingsManagingConsoleApp\Meetings.json";
+            string filePath = FileFunctions.GetFilePathFromBaseDirectory("Meetings.json");
 
             var jsonMeetingList = String.Empty;
 
@@ -59,21 +60,22 @@ namespace MeetingsManagingConsoleApp
                 var jsonMeeting = String.Empty;
                 foreach (Meeting meeting in _meetingList)
                 {
-                    if(currentIndex == _meetingList.Count)
+                    if (currentIndex == _meetingList.Count)
                         jsonMeeting = Newtonsoft.Json.JsonConvert.SerializeObject(meeting, Newtonsoft.Json.Formatting.Indented);
                     else
-                        jsonMeeting = Newtonsoft.Json.JsonConvert.SerializeObject(meeting, Newtonsoft.Json.Formatting.Indented) +",\n";
+                        jsonMeeting = Newtonsoft.Json.JsonConvert.SerializeObject(meeting, Newtonsoft.Json.Formatting.Indented) + ",\n";
                     jsonMeetingList += jsonMeeting;
                     currentIndex++;
                 }
                 jsonMeetingList = string.Concat("[\n" + jsonMeetingList + "\n]");
-                File.WriteAllText(filePath, jsonMeetingList); 
+                File.WriteAllText(filePath, jsonMeetingList);
             }
+            else Console.WriteLine("Json file does not exist");
 
             
         }
 
-        public void DisplayMeetingListDetails(List<Meeting> meetings)
+        private void DisplayMeetingListDetails(List<Meeting> meetings)
         {
             int i = 0;
             foreach (var meeting in meetings)
@@ -100,7 +102,19 @@ namespace MeetingsManagingConsoleApp
                 {
                     _meetingList[addpIndex].Participants.Add(input);
                     addedIndex++;
-                    Console.WriteLine("Person added");
+                    Console.WriteLine($"Person added at: {DateTimeOffset.Now}");
+                    int i = 1;
+                    Meeting currMeeting = _meetingList[addpIndex];
+                    foreach(var meeting in _meetingList)
+                    {
+                        i++;
+                        if (meeting.Participants.Contains(input) && i != addpIndex){
+                            if (currMeeting.StartDate < meeting.StartDate && currMeeting.EndDate > meeting.StartDate
+                                || meeting.StartDate < currMeeting.EndDate && meeting.EndDate > currMeeting.EndDate)
+                                Console.WriteLine($"Warning: The person you just added is already in a meeting ({meeting.Name}) that intersects" +
+                                    " the one they ar being added to right now!");
+                        }
+                    }
                 }
                 else
                     Console.WriteLine("Person is already in the meeting");
@@ -194,18 +208,17 @@ namespace MeetingsManagingConsoleApp
                     matchingMeetings = _meetingList.Where(m => m.ResponsiblePerson.Contains(resPerson)).ToList();
                     break;
                 case "cat":
-                    Console.Write("enter category: ");
-                    string category = Console.ReadLine();
-                    matchingMeetings = _meetingList.Where(m => m.Category.Contains(category)).ToList();
+                    int categoryIndex = Meeting.GetCategoryIndex();
+                    matchingMeetings = _meetingList.Where(m => m.Category == (Meeting.MeetingCategory)categoryIndex).ToList();
                     break;
                 case "type":
                     Console.Write("enter type: ");
-                    string type = Console.ReadLine();
-                    matchingMeetings = _meetingList.Where(m => m.Type.Contains(type)).ToList();
+                    int typeIndex = Meeting.GetTypeIndex();
+                    matchingMeetings = _meetingList.Where(m => m.Type == (Meeting.MeetingType)typeIndex).ToList();
                     break;
                 case "atte":
                     Console.WriteLine("Enter the minimum amount of attendees");
-                    var minPeople = Int32.Parse(Console.ReadLine());
+                    var minPeople = MiscFunctions.GetIntFromReadLine();
                     matchingMeetings = _meetingList.Where(m => m.Participants.Count >= minPeople).ToList();
                     break;
             }
