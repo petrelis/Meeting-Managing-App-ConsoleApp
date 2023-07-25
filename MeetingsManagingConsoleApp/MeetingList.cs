@@ -75,8 +75,9 @@ namespace MeetingsManagingConsoleApp
             
         }
 
-        private void DisplayMeetingListDetails(List<Meeting> meetings)
+        public void DisplayMeetingListDetails(List<Meeting> meetings)
         {
+            if (meetings.Count == 0) Console.WriteLine("No meetings found");
             int i = 0;
             foreach (var meeting in meetings)
             {
@@ -92,16 +93,16 @@ namespace MeetingsManagingConsoleApp
         {
             string input = String.Empty;
             Console.WriteLine("Enter participant names one by one, type \"c\" to stop");
-            int addedIndex = 0;
+            int peopleAddedCount = 0;
             while(true)
             {
-                input = Console.ReadLine();
+                input = MiscFunctions.GetNotNullStringFromReadLine("name");
                 if (input == "c")
                     break;
                 if (!_meetingList[addpIndex].Participants.Contains(input))
                 {
                     _meetingList[addpIndex].Participants.Add(input);
-                    addedIndex++;
+                    peopleAddedCount++;
                     Console.WriteLine($"Person added at: {DateTimeOffset.Now}");
                     int i = 1;
                     Meeting currMeeting = _meetingList[addpIndex];
@@ -112,7 +113,7 @@ namespace MeetingsManagingConsoleApp
                             if (currMeeting.StartDate < meeting.StartDate && currMeeting.EndDate > meeting.StartDate
                                 || meeting.StartDate < currMeeting.EndDate && meeting.EndDate > currMeeting.EndDate)
                                 Console.WriteLine($"Warning: The person you just added is already in a meeting ({meeting.Name}) that intersects" +
-                                    " the one they ar being added to right now!");
+                                    " the one they are being added to right now!");
                         }
                     }
                 }
@@ -121,14 +122,14 @@ namespace MeetingsManagingConsoleApp
                 
             }
             CsMeetingsToJson();
-            return addedIndex;
+            return peopleAddedCount;
         }
 
         internal int RemovePeople(int removepIndex)
         {
             string input = String.Empty;
             Console.WriteLine("Enter participant names one by one, type \"c\" to stop");
-            int removedIndex = 0;
+            int peopleRemovedCount = 0;
             while (true)
             {
                 input = Console.ReadLine();
@@ -138,12 +139,12 @@ namespace MeetingsManagingConsoleApp
                     && _meetingList[removepIndex].Participants.Contains(input))
                 {
                     _meetingList[removepIndex].Participants.Remove(input);
-                    removedIndex++;
+                    peopleRemovedCount++;
                 }
                 else Console.WriteLine("Can't remove");
             }
             CsMeetingsToJson();
-            return removedIndex;
+            return peopleRemovedCount;
         }
 
         public bool AddMeeting(Meeting meeting)
@@ -180,11 +181,9 @@ namespace MeetingsManagingConsoleApp
                 Console.WriteLine("No meetings found");
         }
 
-        public List<Meeting> DisplayGetOwnedMeetings(string responsiblePerson)
+        public List<Meeting> GetOwnedMeetings(string responsiblePerson)
         {
-            var ownedMeetings = _meetingList.Where(m => m.ResponsiblePerson.Contains(responsiblePerson)).ToList();
-            DisplayMeetingListDetails(ownedMeetings);
-            return ownedMeetings;
+            return _meetingList.Where(m => m.ResponsiblePerson.Contains(responsiblePerson)).ToList();
         }
 
         public void DisplayMatchingMeetings(string searchArg)

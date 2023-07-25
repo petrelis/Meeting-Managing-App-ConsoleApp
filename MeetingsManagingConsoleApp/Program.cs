@@ -46,9 +46,10 @@ namespace MeetingsManagingConsoleApp
 
                     case "addp":
                         Console.Clear();
-                        var ownedMeetingsAddp = meetingsList.DisplayGetOwnedMeetings(username);
+                        var ownedMeetingsAddp = meetingsList.GetOwnedMeetings(username);
                         if (ownedMeetingsAddp.Count > 0)
                         {
+                            meetingsList.DisplayMeetingListDetails(ownedMeetingsAddp);
                             Console.WriteLine("Which meeting do you want to add people to (enter index): ");
                             int addpIndex = MiscFunctions.GetIntFromReadLine() - 1;
                             int addedIndex = meetingsList.AddPeople(addpIndex);
@@ -59,12 +60,12 @@ namespace MeetingsManagingConsoleApp
 
                     case "removep":
                         Console.Clear();
-                        var ownedMeetingsRemovep = meetingsList.DisplayGetOwnedMeetings(username);
+                        var ownedMeetingsRemovep = meetingsList.GetOwnedMeetings(username);
                         if (ownedMeetingsRemovep.Count > 0)
                         {
+                            meetingsList.DisplayMeetingListDetails(ownedMeetingsRemovep);
                             Console.WriteLine("Which meeting do you want to remove people from (enter index): ");
-                            string removepInput = Console.ReadLine();
-                            int removepIndex = Int32.Parse(removepInput) - 1;
+                            int removepIndex = MiscFunctions.GetIntFromReadLine() - 1;
                             int removedIndex = meetingsList.RemovePeople(removepIndex);
                             Console.Clear();
                             Console.WriteLine($"{removedIndex} Participants removed");
@@ -78,11 +79,11 @@ namespace MeetingsManagingConsoleApp
 
                     case "remove":
                         Console.Clear();
-                        var ownedMeetingsRemove = meetingsList.DisplayGetOwnedMeetings(username);
+                        var ownedMeetingsRemove = meetingsList.GetOwnedMeetings(username);
                         if (ownedMeetingsRemove.Count > 0)
                         {
+                            meetingsList.DisplayMeetingListDetails(ownedMeetingsRemove);
                             Console.Write("Which meeting do you want to delete (enter index): ");
-                            string removeInput = Console.ReadLine();
                             int removeIndex = MiscFunctions.GetIntFromReadLine() - 1;
                             var removeMeeting = ownedMeetingsRemove[removeIndex];
                             meetingsList.DeleteMeeting(removeMeeting);
@@ -100,7 +101,7 @@ namespace MeetingsManagingConsoleApp
                         while (searchArg != "name" && searchArg != "desc" && searchArg != "resp" && searchArg != "cat" && searchArg != "type" && searchArg != "atte")
                         {
                             Console.Clear();
-                            Console.Write("Enter one of the following attribute filters:" +
+                            Console.Write("Enter one of the following meeting attribute filters:" +
                                 "\nname, desc, resp, cat, or type: ");
                             searchArg = Console.ReadLine();
                         }

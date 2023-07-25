@@ -71,11 +71,11 @@ namespace HelperClass
             while(true)
             {
                 string input = Console.ReadLine();
-                if(input != null || input == String.Empty)
+                if(input != null && input != String.Empty)
                 {
                     return input;
                 }
-                Console.Write($"Please enter a {stringName}: ");
+                Console.Write($"Please enter a valid {stringName}: ");
             }
         }
     }
