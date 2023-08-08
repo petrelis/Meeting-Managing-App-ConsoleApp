@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using HelperClass;
+using HelperLibrary;
 
 namespace MeetingsManagingConsoleApp
 {
@@ -96,7 +96,7 @@ namespace MeetingsManagingConsoleApp
             int peopleAddedCount = 0;
             while(true)
             {
-                input = MiscFunctions.GetNotNullStringFromReadLine("name");
+                input = ConsoleInputOutputFunctions.GetNotNullStringFromReadLine("name");
                 if (input == "c")
                     break;
                 if (!_meetingList[addpIndex].Participants.Contains(input))
@@ -132,7 +132,7 @@ namespace MeetingsManagingConsoleApp
             int peopleRemovedCount = 0;
             while (true)
             {
-                input = Console.ReadLine();
+                input = ConsoleInputOutputFunctions.GetNotNullStringFromReadLine("name or \"c\" to stop");
                 if (input == "c")
                     break;
                 if (input != _meetingList[removepIndex].ResponsiblePerson
@@ -193,7 +193,7 @@ namespace MeetingsManagingConsoleApp
             {
                 case "name":
                     Console.Write("enter name: ");
-                    string name = Console.ReadLine();
+                    string name = ConsoleInputOutputFunctions.GetNotNullStringFromReadLine("name");
                     matchingMeetings = _meetingList.Where(m => m.Name.Contains(name)).ToList();
                     break;
                 case "desc":
@@ -203,7 +203,7 @@ namespace MeetingsManagingConsoleApp
                     break;
                 case "resp":
                     Console.Write("enter responsible person's name: ");
-                    string resPerson = Console.ReadLine();
+                    string resPerson = ConsoleInputOutputFunctions.GetNotNullStringFromReadLine("name");
                     matchingMeetings = _meetingList.Where(m => m.ResponsiblePerson.Contains(resPerson)).ToList();
                     break;
                 case "cat":
@@ -217,7 +217,7 @@ namespace MeetingsManagingConsoleApp
                     break;
                 case "atte":
                     Console.WriteLine("Enter the minimum amount of attendees");
-                    var minPeople = MiscFunctions.GetIntFromReadLine();
+                    var minPeople = ConsoleInputOutputFunctions.GetIntFromReadLine();
                     matchingMeetings = _meetingList.Where(m => m.Participants.Count >= minPeople).ToList();
                     break;
             }

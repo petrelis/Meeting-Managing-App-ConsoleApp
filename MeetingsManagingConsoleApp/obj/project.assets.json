@@ -49,6 +49,15 @@
         "build": {
           "build/NUnit.props": {}
         }
+      },
+      "HelperLibrary/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/HelperLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HelperLibrary.dll": {}
+        }
       }
     }
   },
@@ -248,10 +257,16 @@
         "nunit.3.13.3.nupkg.sha512",
         "nunit.nuspec"
       ]
+    },
+    "HelperLibrary/1.0.0": {
+      "type": "project",
+      "path": "../HelperLibrary/HelperLibrary.csproj",
+      "msbuildProject": "../HelperLibrary/HelperLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "HelperLibrary >= 1.0.0",
       "NUnit >= 3.13.3",
       "Newtonsoft.Json >= 13.0.1"
     ]
@@ -262,11 +277,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
       "projectName": "MeetingsManagingConsoleApp",
-      "projectPath": "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
+      "projectPath": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
       "packagesPath": "C:\\Users\\visti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp\\obj\\",
+      "outputPath": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\visti\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -282,7 +297,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\HelperLibrary\\HelperLibrary.csproj": {
+              "projectPath": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\HelperLibrary\\HelperLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -319,7 +338,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HelperClass;
+using HelperLibrary;
 
 namespace MeetingsManagingConsoleApp
 {
@@ -47,7 +47,7 @@ namespace MeetingsManagingConsoleApp
         {
             Console.Clear();
             Console.WriteLine("Meeting Name: ");
-            var name = MiscFunctions.GetNotNullStringFromReadLine("name");
+            var name = ConsoleInputOutputFunctions.GetNotNullStringFromReadLine("name");
             var responsiblePerson = username;
             Console.WriteLine("Description: ");
             var description = Console.ReadLine();
@@ -78,7 +78,7 @@ namespace MeetingsManagingConsoleApp
             Console.Write("Choose the index of this Meeting's Category: ");
 
             var enumCount = ((int)Enum.GetValues(typeof(MeetingCategory)).Cast<MeetingCategory>().Max());
-            return MiscFunctions.GetEnumIndex(enumCount);
+            return ConsoleInputOutputFunctions.GetEnumIndex(enumCount);
         }
 
         public static int GetTypeIndex()
@@ -89,7 +89,7 @@ namespace MeetingsManagingConsoleApp
             Console.Write("Choose the index of this Meeting's Type: ");
 
             var enumCount = ((int)Enum.GetValues(typeof(MeetingType)).Cast<MeetingType>().Max());
-            return MiscFunctions.GetEnumIndex(enumCount);
+            return ConsoleInputOutputFunctions.GetEnumIndex(enumCount);
         }
     }
 }

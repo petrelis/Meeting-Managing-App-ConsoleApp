@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "MeetingsManagingConsoleApp/1.0.0": {
         "dependencies": {
+          "HelperLibrary": "1.0.0",
           "NUnit": "3.13.3",
           "Newtonsoft.Json": "13.0.1"
         },
@@ -38,6 +39,11 @@
             "assemblyVersion": "3.13.3.0",
             "fileVersion": "3.13.3.0"
           }
+        }
+      },
+      "HelperLibrary/1.0.0": {
+        "runtime": {
+          "HelperLibrary.dll": {}
         }
       }
     }
@@ -75,6 +81,11 @@
       "sha512": "sha512-KNPDpls6EfHwC3+nnA67fh5wpxeLb3VLFAfLxrug6JMYDLHH6InaQIWR7Sc3y75d/9IKzMksH/gi08W7XWbmnQ==",
       "path": "nunit/3.13.3",
       "hashPath": "nunit.3.13.3.nupkg.sha512"
+    },
+    "HelperLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

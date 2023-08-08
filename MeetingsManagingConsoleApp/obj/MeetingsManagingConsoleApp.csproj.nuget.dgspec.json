@@ -1,17 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj": {}
+    "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj": {
+    "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\HelperLibrary\\HelperLibrary.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\HelperLibrary\\HelperLibrary.csproj",
+        "projectName": "HelperLibrary",
+        "projectPath": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\HelperLibrary\\HelperLibrary.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
+        "projectUniqueName": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
         "projectName": "MeetingsManagingConsoleApp",
-        "projectPath": "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
+        "projectPath": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
         "packagesPath": "C:\\Users\\visti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp\\obj\\",
+        "outputPath": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\visti\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,7 +42,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\HelperLibrary\\HelperLibrary.csproj": {
+                "projectPath": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\HelperLibrary\\HelperLibrary.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -64,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

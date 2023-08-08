@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R1J1WzYn2tHiYKqDUWuFCyM8BKQ1hheyspxb1ToMKy86FOwEAJqgEU3ey7qwBUgatMVu/FtFTRj2CyOF0sVikw==",
+  "dgSpecHash": "Pzpp9bZ2JvtBJGMMNMjF1/Qzowb/tIisqScIkXjg3IWOxZz7BjphzyfTnfV3BZaIJ8B10nOMYRV46g7qRb2H5A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleAppTests1\\MeetingsManagingConsoleAppTests1.csproj",
+  "projectFilePath": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleAppTests1\\MeetingsManagingConsoleAppTests1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\visti\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\visti\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",

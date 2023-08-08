@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vlDIWuH7KBO13pE9mMd/pNabthhbddqzvzmesMQKgBmu9PjxWe+Tk882XeMihHhzi4vLiV2V4834WiSNMfaT8w==",
+  "dgSpecHash": "WsDwMeoBrfna/ZL0pLHU5OgpUf4quqx431tcMpouleLN8UJr/yXNXcMzMO2qIBe+T+uAjoVPYqRZqmHpfLfCMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\visti\\Desktop\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
+  "projectFilePath": "C:\\Users\\visti\\Documents\\GitHub\\Meeting-Managing-App-ConsoleApp\\MeetingsManagingConsoleApp\\MeetingsManagingConsoleApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\visti\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\visti\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",

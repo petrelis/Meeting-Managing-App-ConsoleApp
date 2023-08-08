@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using HelperClass;
+using HelperLibrary;
 
 namespace MeetingsManagingConsoleApp
 {
     internal class Program
     {
-        private List<Meeting> _meetingList { get; set; }
-
         static void Main(string[] args)
         {
             var meetingsList = new MeetingList();
 
             Console.Write("Enter your username: ");
-            string username = MiscFunctions.GetNotNullStringFromReadLine("username");
+            string username = ConsoleInputOutputFunctions.GetNotNullStringFromReadLine("username");
 
             Console.WriteLine("Type \"help\" for commands");
 
@@ -41,7 +39,7 @@ namespace MeetingsManagingConsoleApp
                     case "add":
                         Meeting newMeeting = Meeting.AddNewMeeting(username);
                         meetingsList.AddMeeting(newMeeting);
-
+                        Console.WriteLine("New meeting successfully added");
                         break;
 
                     case "addp":
@@ -51,7 +49,7 @@ namespace MeetingsManagingConsoleApp
                         {
                             meetingsList.DisplayMeetingListDetails(ownedMeetingsAddp);
                             Console.WriteLine("Which meeting do you want to add people to (enter index): ");
-                            int addpIndex = MiscFunctions.GetIntFromReadLine() - 1;
+                            int addpIndex = ConsoleInputOutputFunctions.GetIntFromReadLine() - 1;
                             int addedIndex = meetingsList.AddPeople(addpIndex);
                             Console.Clear();
                             Console.WriteLine($"{addedIndex} Participants added");
@@ -65,7 +63,7 @@ namespace MeetingsManagingConsoleApp
                         {
                             meetingsList.DisplayMeetingListDetails(ownedMeetingsRemovep);
                             Console.WriteLine("Which meeting do you want to remove people from (enter index): ");
-                            int removepIndex = MiscFunctions.GetIntFromReadLine() - 1;
+                            int removepIndex = ConsoleInputOutputFunctions.GetIntFromReadLine() - 1;
                             int removedIndex = meetingsList.RemovePeople(removepIndex);
                             Console.Clear();
                             Console.WriteLine($"{removedIndex} Participants removed");
@@ -84,7 +82,7 @@ namespace MeetingsManagingConsoleApp
                         {
                             meetingsList.DisplayMeetingListDetails(ownedMeetingsRemove);
                             Console.Write("Which meeting do you want to delete (enter index): ");
-                            int removeIndex = MiscFunctions.GetIntFromReadLine() - 1;
+                            int removeIndex = ConsoleInputOutputFunctions.GetIntFromReadLine() - 1;
                             var removeMeeting = ownedMeetingsRemove[removeIndex];
                             meetingsList.DeleteMeeting(removeMeeting);
                             meetingsList.CsMeetingsToJson();

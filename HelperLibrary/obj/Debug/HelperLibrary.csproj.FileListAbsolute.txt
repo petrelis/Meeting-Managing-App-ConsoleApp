@@ -1,0 +1,6 @@
+C:\Users\visti\Documents\GitHub\Meeting-Managing-App-ConsoleApp\HelperLibrary\bin\Debug\HelperLibrary.dll
+C:\Users\visti\Documents\GitHub\Meeting-Managing-App-ConsoleApp\HelperLibrary\bin\Debug\HelperLibrary.pdb
+C:\Users\visti\Documents\GitHub\Meeting-Managing-App-ConsoleApp\HelperLibrary\obj\Debug\HelperLibrary.csproj.AssemblyReference.cache
+C:\Users\visti\Documents\GitHub\Meeting-Managing-App-ConsoleApp\HelperLibrary\obj\Debug\HelperLibrary.csproj.CoreCompileInputs.cache
+C:\Users\visti\Documents\GitHub\Meeting-Managing-App-ConsoleApp\HelperLibrary\obj\Debug\HelperLibrary.dll
+C:\Users\visti\Documents\GitHub\Meeting-Managing-App-ConsoleApp\HelperLibrary\obj\Debug\HelperLibrary.pdb

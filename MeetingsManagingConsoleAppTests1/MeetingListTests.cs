@@ -25,8 +25,8 @@ namespace MeetingsManagingConsoleApp.Tests
                 "name",
                 "responsiblePerson",
                 "description",
-                "category",
-                "live",
+                0,
+                0,
                 new DateTimeOffset(2022, 04, 03, 20, 30, 0, TimeSpan.Zero),
                 new DateTimeOffset(2022, 04, 03, 21, 30, 0, TimeSpan.Zero),
                 participants);
